@@ -1,0 +1,16 @@
+<div>
+  <p><a href="{{ detail.owner.html_url }}"> {{ detail.owner.login }}  </a> / {{ detail.name }}</p>
+</div>
+<div>
+  <input type="text" (change)="onChangeEvent($event)" placeholder="Search..">
+</div>
+<div class="row" *ngFor="let issue of issues">
+  <div class="column left"><a href="{{ issue.url }} "> {{ issue.number }}   </a></div>
+  <div class="column middle">{{ issue.state }}</div>
+  <div class="column right">{{ issue.title }}</div>
+</div>
+
+<mat-paginator [length]="100"
+              [pageSize]="10"
+              [pageSizeOptions]="[5, 10, 25, 100]">
+</mat-paginator>
